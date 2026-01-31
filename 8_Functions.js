@@ -75,7 +75,7 @@ const arr = [1200, 4300, 3200, 5432]
 function Getarray(anyArray){
     return anyArray[3]
 }
-console.log(Getarray(arr))
+console.log(Getarray(arr), "\n")
 
 
 //or
@@ -86,3 +86,27 @@ function Getarray(anyArray){
 console.log(Getarray([1200, 4300, 3200, 5432]))
 */
 
+
+
+
+
+
+
+
+
+//--------------------------Interesting-------------------------
+
+console.log(PlusOne(6))
+function PlusOne(num){
+    return num + 1
+}
+
+//This is hoisting (calling/using a function before defining it)
+
+//But if we store a function in a variable, then hoisting can't be done\
+
+// console.log(PlusTwo(6)) - not possible
+const PlusTwo = function(num2){
+    return num2 + 2
+}
+console.log(PlusTwo(6))
