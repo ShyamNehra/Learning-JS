@@ -1,0 +1,58 @@
+JavaScript Execution Context:
+When we give our code to JS, Firstly "Global Execution Context(GEC)" is created, and a variale 'this' referes to the GEC. 
+GEC for browser environment, Node.js environment, etc is different, and in browser, the value of 'this' -> window object
+then we have "Function Execution Context" and "Eval Execution Context" (This is not as important to know much about)
+
+
+Javascript is executed in two phases:
+    1. Memory Creation Phase
+    2. Execution Phase
+
+1. Memory Creation Phase: Memory is allocated to all the variable declared
+
+
+
+-----------------------------Example Code-----------------------------
+
+let val1 = 10;
+let val2 = 20;
+
+function addNum(num1, num2){
+    let total = num1 + num2
+    return total;
+}
+
+let result1 = addNum(val1, val2)
+let result2 = addNum(10, 70)
+
+
+
+STEPS:
+1. Global Execution -> 'this'
+
+2. Memory Phase:
+    a. val1 -> undefined
+    b. val2 -> undefined
+    c. addNum -> defination
+    d. result1 -> undefined
+    e. result2 -> undefined
+
+3. Execution Phase:
+    a. val1 <- 10
+    b. val2 <- 20
+    c. addNum have nothing to execute
+    d. result1 needs addNum, now addNum will create its own Executional Context(new variable environment + execution thread), where Memory Phase and Execution phase will now execute for 'addNum'
+            d-1. Memory phase
+                val1 -> undefined
+                val2 -> undefined
+                total -> undefined
+
+            d-2. Execution phase
+                num1 -> 10
+                num2 -> 20
+                total -> 30
+
+                now the result - total will be passed to Global Execution Context
+                and this subExecutional Context will be deleted
+    e. we got the value of result1 = 30
+    f. similarly result2 will be executed             
