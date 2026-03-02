@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    /*
+    addEventListener is used to recognise events like mouse click, key press, etc. In it, we pass three parameters, 1.Type, 2.Function, 3.False/True(event propagation) - by default False
+    //Other things to learn: type, timeStamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY, screenX, screenY, altKey, ctrlKey, keyCode
+    */
+
+    /*
+    document.getElementById('owl').addEventListener('click',function(e){
+        alert('Mat daba laala mat daba')
+        console.log(e);
+        console.log(e.timeStamp);
+        }, false)
+    */
+        
+        //In event propagation, with 'FALSE', script track the elements from inside to outside - 'bubbling' & with 'TRUE', script track the elements from outside to inside - 'capturing'
+
+        /*
+        document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul");
+        }, false)
+
+        document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl clicked");
+        e.stopPropagation(); //stops propagation from inside to outside or vice versa
+        }, false)
+
+        document.getElementById('google').addEventListener('click', function(e){
+            console.log("Google clicked!")
+            e.preventDefault();  //To stop the default working of something
+        }, false)
+        */
+
+       document.querySelector('#images').addEventListener('click', function(e){
+        // let removeIt = e.target.parentNode;
+        // removeIt.remove()
+
+        if(e.target.tagName == 'IMG'){
+            let removeIt = e.target.parentNode;
+                removeIt.remove()
+        }
+        console.log(e.target.tagName)
+        console.log(e.target.id)
+       }, false)
+</script>
+</html>

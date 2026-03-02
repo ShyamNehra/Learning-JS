@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Jaipur</h1>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    // const Welcome = function(){
+    //         console.log("Hello")
+    // }
+
+    const TextChange = function(){
+            document.querySelector('h1').innerHTML = "Welcome to Jaipur again!"
+    }
+    const WelcomeAgain = setTimeout(TextChange, 3000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(WelcomeAgain)
+        console.log("Stopped!")
+    })
+
+</script>
+</html>
