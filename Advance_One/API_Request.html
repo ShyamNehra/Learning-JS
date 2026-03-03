@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>API request</title>
+</head>
+
+<body>
+
+
+    <h2>No followers</h2>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/shyamnehra'
+    const xhr = new XMLHttpRequest();   //creating new object or method named xhr
+
+    xhr.open('GET', requestUrl)     //open is a method having two parameters, first is method('GET', 'POST') and second is url
+    xhr.onreadystatechange = function () {    //to continuously monitor the state change 
+        console.log(xhr.readyState);     //whenever the state is changed it will print the state number in console
+        if (xhr.readyState === 4) {     //when the work is done i.e. state = 4, then the following things will happen
+            const data = JSON.parse(this.responseText)    //this is used to give current context, also it will give data in string, here we'll parse it into JSON using "JSON.parse"
+            console.log(typeof data);
+            console.log(data.followers);
+            // document.querySelector('h2').innerHTML = `Name: ${data.name}, GitHub Followers: ${data.followers} `;
+        }
+    }
+    xhr.send();    //to send the XML request
+
+    /*
+    Value	        State	             Description
+0	UNSENT  - Client has been created. open() not called yet.
+1	OPENED	- open() has been called.
+2	HEADERS_RECEIVED   - send() has been called, and headers and status are available.
+3	LOADING	   - Downloading; responseText holds partial data.
+4	DONE	- The operation is complete.
+*/
+
+</script>
+
+</html>
