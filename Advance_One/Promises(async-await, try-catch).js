@@ -152,3 +152,22 @@ fetch('https://jsonplaceholder.typicode.com/users')
 .catch(()=>{
     console.log(error)
 })
+
+//fetch is a network based request
+
+//If got error 404 from a fetch promise, we will get it as a response not in resolve or reject
+
+//for fetch, there is a seperate execution queue k/n as MICRO TASK QUEUE/ PRIORITY QUEUE which executes before the tasks in TASK QUEUE
+
+//fetch's working is divided into two parts:  1.Data - it reserves space in memory, it have two array - OnFulfilled[](think as resolve) and OnRejection[](think as reject), which are private and can't be accessed                    2. Web browser/Node - sends network request(resourse given by browser or Node envirnoment), from here we'll get a response and will be sent to OnFulfilled[] otherwise to OnRejection[],  
+
+
+
+
+
+const headers = {
+    name: "Shyam",
+    age: '20'
+}
+fetch('https://jsonplaceholder.typicode.com/users', {headers});
+
