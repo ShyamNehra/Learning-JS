@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+
+<body>
+    <button>Go Live</button>
+    <h1>About Bind</h1>
+    <p>bind() is used to permanently set the value of 'this' for a function. In event listeners or callbacks, JavaScript usually changes this to the element or object that calls the function. By using bind(this), you create a new version of the function where this always refers to the original class or object instance. This ensures that properties like this.server remain accessible even when the function is executed later by the browser.</p>
+
+</body>
+<script>
+    class React{
+        constructor() {
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+        document
+            .querySelector('button')
+            .addEventListener('click', this.handleClick.bind(this))
+        }
+
+        handleClick() {
+            console.log("Button Clicked")
+            console.log(this.server)
+        }
+    }
+    const app = new React()
+</Script>
+</html>
+
